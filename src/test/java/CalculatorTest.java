@@ -44,7 +44,9 @@ public class CalculatorTest {
 
     @Test
     public void verifyDivisionByZero() {
-         assertThrows(IllegalArgumentException.class, () -> {calculator.division(5, 0);});
+         Throwable exception = assertThrows(IllegalArgumentException.class, () -> {calculator.division(5, 0);});
+
+         assertEquals("Cannot division by zero", exception.getMessage());
     }
 }
 
